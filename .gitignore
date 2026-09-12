@@ -1,0 +1,24 @@
+# Dependencias
+node_modules/
+
+# Build
+dist/
+build/
+
+# Variables de entorno (secretos: Mercado Pago, Google OAuth)
+.env
+.env.*
+!.env.example
+
+# Imágenes subidas por el admin (no deben ir al repo)
+uploads/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
