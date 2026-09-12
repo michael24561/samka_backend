@@ -1,0 +1,12 @@
+import { Router } from "express";
+import { createProduct, deleteProduct, getProduct, listCategories, listProducts, updateProduct, } from "../controllers/productController.js";
+import { requireAdmin, requireAuth } from "../middleware/auth.js";
+import { asyncHandler } from "../middleware/error.js";
+const router = Router();
+router.get("/categories", asyncHandler(listCategories));
+router.get("/", asyncHandler(listProducts));
+router.get("/:slug", asyncHandler(getProduct));
+router.post("/", requireAuth, requireAdmin, asyncHandler(createProduct));
+router.patch("/:id", requireAuth, requireAdmin, asyncHandler(updateProduct));
+router.delete("/:id", requireAuth, requireAdmin, asyncHandler(deleteProduct));
+export default router;
